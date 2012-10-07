@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="sport.db : Open Sports Database &amp; Schema" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>sport.db</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/geraldb/sport.db">View on GitHub</a>
+
+          <h1 id="project_title">sport.db</h1>
+          <h2 id="project_tagline">Open Sports Database &amp; Schema</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/geraldb/sport.db/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/geraldb/sport.db/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Welcome to <code>sport.db</code>
+</h1>
+
+<p>A Free Open Sports Database &amp; Schema</p>
+
+<h2>Usage</h2>
+
+<p>Get a copy of the <code>sport.db</code> file. That's it.</p>
+
+<h2>Events include:</h2>
+
+<ul>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/cl">UEFA Champions League 2012/13</a></li>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/cl">UEFA Europa League 2011/12</a></li>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/at">Österreichische Bundesliga 2011/12, 2012/13</a></li>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/at">ÖFB Cup 2011/12, 2012/13</a></li>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/euro">UEFA European Football Championship aka Euro 2012</a></li>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/ro">Romania Liga 1 2012/13</a></li>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/mx">México Primera División Apertura 2012</a></li>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/world">World Cup Quali 2012/13</a></li>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/nhl">National Hockey League (NHL) 2012</a></li>
+</ul><h2>Demo</h2>
+
+<p>Try the <code>sport.db</code> Web Admin demo running
+on Heroku <a href="http://sportdbdemo.herokuapp.com"><code>sportdbdemo.herokuapp.com</code></a>.</p>
+
+<h2>Tables, Schema</h2>
+
+<p>The <code>sport.db</code> includes the following tables:</p>
+
+<ul>
+<li>teams</li>
+<li>games</li>
+<li>events
+
+<ul>
+<li>events_teams (join table)</li>
+</ul>
+</li>
+<li>rounds</li>
+<li>groups
+
+<ul>
+<li>groups_teams (join table)</li>
+</ul>
+</li>
+</ul><p>[add schema pic here]</p>
+
+<h3>
+<code>teams</code> Table</h3>
+
+<p>[tbd]</p>
+
+<h3>
+<code>games</code> Table</h3>
+
+<p>[tbd]</p>
+
+<h3>
+<code>events</code> Table</h3>
+
+<p>[tbd]</p>
+
+<h2>Command Line Tool</h2>
+
+<pre><code>sportdb - sport.db command line tool
+
+Usage: sportdb [options]
+  -c, --create                     Create DB Schema
+      --load                       Use Loader for Builtin Sports Data
+  -o, --output PATH                Output Path (default is .)
+  -i, --include PATH               Data Path (default is .)
+  -v, --version                    Show version
+      --verbose                    Show debug trace
+  -h, --help                       Show this message
+
+
+Examples:
+   sportdb cl/teams cl/2012_13/cl                     # import champions league (cl)
+   sportdb -c                                         # create database schema
+</code></pre>
+
+<p>See the <a href="https://github.com/geraldb/sport.db/tree/master/script"><code>sportdb</code> command line tool documentation</a> for more.</p>
+
+<h2>Build Your Own <code>sport.db</code> Version</h2>
+
+<p>Step 1:  Create an empty database, that is, <code>sport.db</code>. Issue the command:</p>
+
+<pre><code>sportdb --create
+</code></pre>
+
+<p>Step 2:  Add your events and game fixtures of choice. For example,
+let's use the Champions League 2012/13 and the World Cup 2012/13 Quali events and fixtures:</p>
+
+<pre><code>sportdb --include &lt;your_path_to_fixtures&gt; cl/teams cl/2012_13/cl
+sportdb --include &lt;your_path_to_fixtures&gt; euro/teams world/2012_13/quali_2012_13
+</code></pre>
+
+<p>That's it.</p>
+
+<h2>Real World Usage</h2>
+
+<p><a href="https://github.com/geraldb/sport.db.admin">sport.db Web Admin</a> - <code>sport.db</code> Web Admin Tool in Ruby on Rails (version 3.2 and up).</p>
+
+<p><a href="http://geraldb.github.com/sportbook">Sportbook</a> - A free, open source sports betting pool
+in Ruby on Rails (version 3.2 and up). </p>
+
+<h2>Alternatives</h2>
+
+<p><a href="http://www.sportsdb.org">SportsDB</a>  - open database schema for sports information (formerly known as XTOSS: The XML Team Open Sports Schema.)</p>
+
+<p><a href="http://www.openligadb.de">openLigaDB</a> -  community-based sport results</p>
+
+<h2>License</h2>
+
+<p>The <code>sport.db</code> schema, data and scripts are dedicated to the public domain.
+Use it as you please with no restrictions whatsoever.</p>
+
+<h2>Questions? Comments?</h2>
+
+<p>Send them along to the <a href="http://groups.google.com/group/opensport">Open Sports Database &amp; Friends Forum/Mailing List</a>. Thanks!</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">sport.db maintained by <a href="https://github.com/geraldb">geraldb</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
