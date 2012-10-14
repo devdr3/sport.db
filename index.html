@@ -40,19 +40,39 @@
 
 <p>Get a copy of the <code>sport.db</code> file. That's it.</p>
 
-<h2>Events include:</h2>
+<h2>Events</h2>
+
+<h3>Football (Soccer)</h3>
+
+<p>International w/ national teams (e.g. Austria, England, etc.)</p>
 
 <ul>
-<li><a href="https://github.com/geraldb/sport.db/tree/master/db/cl">UEFA Champions League 2012/13</a></li>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/world">World Cup Quali 2012/13</a></li>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/euro">UEFA European Football Championship (Euro) 2012</a></li>
+</ul><p>International w/ football club teams (e.g. FC Barcelona, Manchester Utd, etc.)</p>
+
+<ul>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/cl">UEFA Champions League 2011/12, 2012/13</a></li>
 <li><a href="https://github.com/geraldb/sport.db/tree/master/db/cl">UEFA Europa League 2011/12</a></li>
-<li><a href="https://github.com/geraldb/sport.db/tree/master/db/at">Österreichische Bundesliga 2011/12, 2012/13</a></li>
-<li><a href="https://github.com/geraldb/sport.db/tree/master/db/at">ÖFB Cup 2011/12, 2012/13</a></li>
-<li><a href="https://github.com/geraldb/sport.db/tree/master/db/euro">UEFA European Football Championship aka Euro 2012</a></li>
+</ul><p>National leagues &amp; cups w/ football club teams </p>
+
+<ul>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/en">English Permier League 2012/13</a></li>
+<li><a href="https://github.com/geraldb/sport.db/tree/master/db/de">Deutsche Bundesliga 2012/13</a></li>
+<li>
+<a href="https://github.com/geraldb/sport.db/tree/master/db/at">Österreichische Bundesliga 2011/12, 2012/13</a>, <a href="https://github.com/geraldb/sport.db/tree/master/db/at">ÖFB Cup 2011/12, 2012/13</a>
+</li>
 <li><a href="https://github.com/geraldb/sport.db/tree/master/db/ro">Romania Liga 1 2012/13</a></li>
 <li><a href="https://github.com/geraldb/sport.db/tree/master/db/mx">México Primera División Apertura 2012</a></li>
-<li><a href="https://github.com/geraldb/sport.db/tree/master/db/world">World Cup Quali 2012/13</a></li>
+</ul><h3>Hockey</h3>
+
+<p>Hockey club teams</p>
+
+<ul>
 <li><a href="https://github.com/geraldb/sport.db/tree/master/db/nhl">National Hockey League (NHL) 2012</a></li>
-</ul><h2>Demo</h2>
+</ul><p>Anything missing? Add your leagues, teams, fixtures and more.</p>
+
+<h2>Demo</h2>
 
 <p>Try the <code>sport.db</code> Web Admin demo running
 on Heroku <a href="http://sportdbdemo.herokuapp.com"><code>sportdbdemo.herokuapp.com</code></a>.</p>
@@ -84,15 +104,61 @@ on Heroku <a href="http://sportdbdemo.herokuapp.com"><code>sportdbdemo.herokuapp
 
 <p>[tbd]</p>
 
+<pre><code>CREATE TABLE teams ( 
+    id         INTEGER         PRIMARY KEY AUTOINCREMENT NOT NULL,
+    title      VARCHAR( 255 )  NOT NULL,
+    title2     VARCHAR( 255 ),
+    [key]      VARCHAR( 255 )  NOT NULL,
+    tag        VARCHAR( 255 ),
+    created_at DATETIME        NOT NULL,
+    updated_at DATETIME        NOT NULL 
+);
+</code></pre>
+
 <h3>
 <code>games</code> Table</h3>
 
 <p>[tbd]</p>
 
+<pre><code>CREATE TABLE games ( 
+    id           INTEGER         PRIMARY KEY AUTOINCREMENT NOT NULL,
+    round_id     INTEGER         NOT NULL,
+    pos          INTEGER         NOT NULL,
+    group_id     INTEGER,
+    team1_id     INTEGER         NOT NULL,
+    team2_id     INTEGER         NOT NULL,
+    play_at      DATETIME        NOT NULL,
+    knockout     BOOLEAN         DEFAULT 'f'   NOT NULL,
+    home         BOOLEAN         DEFAULT 't'   NOT NULL,
+    score1       INTEGER,
+    score2       INTEGER,
+    score3       INTEGER,
+    score4       INTEGER,
+    score5       INTEGER,
+    score6       INTEGER,
+    next_game_id INTEGER,
+    prev_game_id INTEGER,
+    toto12x      VARCHAR( 255 ),
+    [key]        VARCHAR( 255 ),
+    created_at   DATETIME        NOT NULL,
+    updated_at   DATETIME        NOT NULL 
+);
+</code></pre>
+
 <h3>
 <code>events</code> Table</h3>
 
 <p>[tbd]</p>
+
+<pre><code>CREATE TABLE events ( 
+    id         INTEGER         PRIMARY KEY AUTOINCREMENT NOT NULL,
+    title      VARCHAR( 255 )  NOT NULL,
+    [key]      VARCHAR( 255 )  NOT NULL,
+    start_at   DATETIME        NOT NULL,
+    created_at DATETIME        NOT NULL,
+    updated_at DATETIME        NOT NULL 
+);
+</code></pre>
 
 <h2>Command Line Tool</h2>
 
